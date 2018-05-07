@@ -2,6 +2,8 @@ let mybubble;
 let shp;
 let stars;
 
+let places = {"Naboo":(746, 641), "Tatooine":(944, 605), "Coruscant": (538, 351), "Kamino": (1026, 556), "Geonosis":(937, 643), "Utapau":(685,779), "Kashyyyk":(830, 344), "Mustafar":(558,752), "Polis Massa":(531,785), "Alderaan":(683, 359), "Yavin VI":(817, 197), "Hoth":(492, 703), "Dagobah":(682, 732), "Bespin":(482, 686), "Endor": (347, 631), "Sullust":(670, 651)}
+
 function preload(){
   stars = loadImage("galaxymap-1.jpg")
 }
