@@ -7,7 +7,7 @@ function preload(){
 }
 
 function setup(){
-  createCanvas(800,600);
+  createCanvas(8000,6000);
   mybubble = new Bubble(width/2, height/2, shp);
   image(stars, 0, 0,stars.width/2, stars.height/2);
 }
