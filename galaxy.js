@@ -1,9 +1,5 @@
 let mybubble;
-let shp;
-let stars;
-let time;
-let speedoftime;
-let goal;
+let map;
 
 let shipdata = {ship: "Millenium Falcon",
                   journey: []
@@ -19,9 +15,6 @@ function setup() {
   createCanvas(800,600);
   mybubble = new Bubble(width/2, height/2, shp, shipdata);
   image(stars, 0, 0,stars.width/2, stars.height/2);
-  time = 0;
-  speedoftime = 2;
-  goal = 0;
 }
 
 #function draw(){
