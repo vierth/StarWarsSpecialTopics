@@ -1,7 +1,9 @@
 let mybubble;
+let shp;
 let stars;
 
 function preload(){
+  shp = loadImage("ship.png");
   stars = loadImage("galaxymap-1.jpg")
 }
 
