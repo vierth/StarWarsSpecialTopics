@@ -13,8 +13,8 @@ function preload() {
  
 function setup() {
   createCanvas(800,600);
-  ship = new Ship(width/2, height/2, shp, shipdata);
-  image(stars, 0, 0, map.width/2, map.height/2);
+  #ship = new Ship(width/2, height/2, shp, shipdata);
+  #image(stars, 0, 0, map.width/2, map.height/2);
 }
 
 #function draw(){
