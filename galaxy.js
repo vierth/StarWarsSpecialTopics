@@ -1,4 +1,4 @@
-let mybubble;
+let ship;
 let map;
 
 let shipdata = {ship: "Millenium Falcon",
@@ -8,13 +8,13 @@ let shipdata = {ship: "Millenium Falcon",
 let places = []
 
 function preload() {
-  map = loadImage("...")
+  map = loadImage("galaxymap-1.jpg")
  }
  
 function setup() {
   createCanvas(800,600);
-  mybubble = new Bubble(width/2, height/2, shp, shipdata);
-  image(stars, 0, 0,stars.width/2, stars.height/2);
+  ship = new Ship(width/2, height/2, shp, shipdata);
+  image(stars, 0, 0, map.width/2, map.height/2);
 }
 
 #function draw(){
