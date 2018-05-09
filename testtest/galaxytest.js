@@ -61,9 +61,9 @@ function setup(){
 
   // Set values for data, and display the background image
   image(stars, 0, 0);
-  time = 1000;
+  time = 1755;
   startingframes = time * 60;
-  speedoftime = 0.2;
+  speedoftime = 1;
   goal = 0;
   frameadjust = -20;
 
