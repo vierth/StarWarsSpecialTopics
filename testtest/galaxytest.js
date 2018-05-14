@@ -165,6 +165,7 @@ class Ship {
 
   // Display the object
   display () {
+      fill(this.c);
       imageMode(CENTER);
       image(this.icon, this.pos.x, this.pos.y, shp.width / 4, shp.height / 4);  
   };
