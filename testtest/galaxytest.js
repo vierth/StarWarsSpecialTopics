@@ -31,7 +31,7 @@ function preload(){
 
 
 function setup(){
-  createCanvas(1263,902)
+  createCanvas(800,600)
   for (i = 0; i < data.getRowCount(); i++){
     // get the data from table
     ship_id = data.getNum(i,0)
@@ -71,7 +71,6 @@ function setup(){
 
 function draw(){
   // Draw background
-  imageMode(CORNER);
   image(stars, 0, 0);
 
   // Update each ship
