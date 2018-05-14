@@ -108,34 +108,166 @@ let places = [
     	coordinates: [670,651],
     	radius: 20
 	}
-	
-
-	
 ];
 
-let mentioned_locations = ["Naboo"];
+let mentioned_locations = [['Naboo', 'Naboo'],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ [],
+ [],
+ ['Naboo', 'Naboo', 'Naboo', 'Naboo', 'Naboo'],
+ [],
+ [],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ ['Naboo', 'Coruscant'],
+ [],
+ ['Naboo', 'Coruscant', 'Coruscant', 'Coruscant'],
+ ['Naboo'],
+ [],
+ ['Naboo', 'Coruscant', 'Tatooine'],
+ ['Naboo', 'Naboo'],
+ ['Tatooine'],
+ ['Naboo', 'Tatooine'],
+ ['Tatooine', 'Naboo'],
+ [],
+ [],
+ [],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ ['Tatooine', 'Naboo', 'Naboo'],
+ [],
+ ['Coruscant'],
+ [],
+ [],
+ ['Naboo'],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ ['Tatooine'],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ ['Naboo', 'Tatooine'],
+ ['Tatooine'],
+ [],
+ ['Coruscant', 'Coruscant', 'Coruscant', 'Coruscant'],
+ ['Naboo'],
+ [],
+ [],
+ ['Coruscant'],
+ [],
+ [],
+ ['Coruscant', 'Naboo', 'Naboo', 'Naboo'],
+ ['Naboo', 'Naboo', 'Naboo'],
+ [],
+ [],
+ [],
+ ['Alderaan', 'Naboo'],
+ [],
+ ['Naboo'],
+ ['Naboo'],
+ [],
+ [],
+ ['Naboo', 'Naboo'],
+ [],
+ ['Naboo', 'Naboo', 'Naboo'],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ [],
+ ['Naboo', 'Naboo'],
+ [],
+ [],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ []];
 
 function searchByName(name) {
-  for (let place in places) {
-    if (place.name === name) {
-      return place;
-    }
-  }
+ 	for (let place in places) {
+    		if (place.name === name) {
+      		return place;
+		}
+  	}
   return -1;
 }
 
 function draw(place) {
 	ellipse(place.coordinates[0], place.coordinates[1], place.radius, place.radius);
-  fill(0);
+  	fill(0);
 }
 
 for (let place in places) {
-  draw(place);
+  	draw(place);
 }
 
 for (location in mentioned.locations) {
-  let place = searchByName(location);
-  if (place !== -1) {
-    place.radius += 10;
+  	let place = searchByName(location);
+  	if (place !== -1) {
+    	place.radius += 10;
   }
 }
