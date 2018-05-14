@@ -65,13 +65,12 @@ function setup(){
   startingframes = time * 60;
   speedoftime = 1;
   goal = 0;
-  frameadjust = -20;
+  frameadjust = 0;
 
 }
 
 function draw(){
   // Draw background
-  imageMode(CORNER);
   image(stars, 0, 0);
 
   // Update each ship
