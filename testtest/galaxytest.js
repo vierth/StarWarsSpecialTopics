@@ -236,6 +236,11 @@ function searchByName(name) {
   return -1;
 }
 
+function draw(place) {
+	ellipse(place.coordinates[0], place.coordinates[1], place.radius, place.radius);
+  	fill(100);
+}
+
 
 
 // let shipdata = [{ship:"1", 
@@ -304,10 +309,12 @@ function draw(){
   // Draw background
   imageMode(CORNER);
   image(stars, 0, 0,stars.width/2, stars.height/2);
-	
+  
+  // draw nodes
+  
+  for (let place in places) {
+  	draw(place);
 }
-  
-  
   
   // Update each ship
   for (i = 0; i < ships.length; i++){
