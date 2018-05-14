@@ -31,7 +31,7 @@ function preload(){
 
 
 function setup(){
-  createCanvas(1263,902);
+  createCanvas(1263,902)
   for (i = 0; i < data.getRowCount(); i++){
     // get the data from table
     ship_id = data.getNum(i,0)
@@ -94,8 +94,8 @@ function draw(){
 
 // Move time function. This sets the interval for the time variable to move forward:
 // By default, this is set per 60 frames (so time = 1 is one second)
-function timeflow(time, timespeed){
-  if (frameCount % (timespeed * 60) == 0){
+function timeflow(time, speedoftime){
+  if (frameCount % (speedoftime * 60) == 0){
     return time += 1;
   } else {
     return time
