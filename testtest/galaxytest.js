@@ -7,6 +7,242 @@ let goal;
 let startingframes;
 let frameadjust;
 
+let places = [
+	{  	
+	name: "Naboo",
+   	coordinates: [746,641],
+    	radius: 20
+	},
+	{
+  	name: "Tatooine",
+    	coordinates: [944,605],
+    	radius: 20
+	},
+	{
+  	name: "Coruscant",
+    	coordinates: [538,351],
+    	radius: 20
+	},
+	{
+	name: "Kamino",
+    	coordinates: [1026,556],
+    	radius: 20
+	},
+	{
+	name: "Geonosis",
+    	coordinates: [937,643],
+    	radius: 20
+	},
+	{
+	name: "Utapau",
+    	coordinates: [685,779],
+    	radius: 20
+	},
+	{
+	name: "Kashyyyk",
+    	coordinates: [830,344],
+    	radius: 20
+	},
+	{
+	name: "Mustafar",
+    	coordinates: [558,752],
+    	radius: 20
+	},
+	{
+	name: "Polis Massa",
+    	coordinates: [531,785],
+    	radius: 20
+	},
+	{
+	name: "Alderaan",
+    	coordinates: [683,359],
+    	radius: 20
+	},
+	{
+	name: "Yavin VI",
+    	coordinates: [817,197],
+    	radius: 20
+	},
+	{
+	name: "Hoth",
+    	coordinates: [492,703],
+    	radius: 20
+	},
+	{
+	name: "Dagobah",
+    	coordinates: [682,732],
+    	radius: 20
+	},
+	{
+	name: "Bespin",
+    	coordinates: [482,686],
+    	radius: 20
+	},
+	{
+	name: "Endor",
+    	coordinates: [347,631],
+    	radius: 20
+	},
+	{
+	name: "Sullust",
+    	coordinates: [670,651],
+    	radius: 20
+	}
+];
+
+let mentioned_locations = [['Naboo', 'Naboo'],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ [],
+ [],
+ ['Naboo', 'Naboo', 'Naboo', 'Naboo', 'Naboo'],
+ [],
+ [],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ ['Naboo', 'Coruscant'],
+ [],
+ ['Naboo', 'Coruscant', 'Coruscant', 'Coruscant'],
+ ['Naboo'],
+ [],
+ ['Naboo', 'Coruscant', 'Tatooine'],
+ ['Naboo', 'Naboo'],
+ ['Tatooine'],
+ ['Naboo', 'Tatooine'],
+ ['Tatooine', 'Naboo'],
+ [],
+ [],
+ [],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ ['Tatooine', 'Naboo', 'Naboo'],
+ [],
+ ['Coruscant'],
+ [],
+ [],
+ ['Naboo'],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ ['Tatooine'],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ ['Naboo', 'Tatooine'],
+ ['Tatooine'],
+ [],
+ ['Coruscant', 'Coruscant', 'Coruscant', 'Coruscant'],
+ ['Naboo'],
+ [],
+ [],
+ ['Coruscant'],
+ [],
+ [],
+ ['Coruscant', 'Naboo', 'Naboo', 'Naboo'],
+ ['Naboo', 'Naboo', 'Naboo'],
+ [],
+ [],
+ [],
+ ['Alderaan', 'Naboo'],
+ [],
+ ['Naboo'],
+ ['Naboo'],
+ [],
+ [],
+ ['Naboo', 'Naboo'],
+ [],
+ ['Naboo', 'Naboo', 'Naboo'],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ [],
+ ['Naboo', 'Naboo'],
+ [],
+ [],
+ [],
+ [],
+ ['Naboo'],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ [],
+ []];
+
+function searchByName(name) {
+ 	for (let place in places) {
+    		if (place.name === name) {
+      		return place;
+		}
+  	}
+  return -1;
+}
+
+function draw(place) {
+	ellipse(place.coordinates[0], place.coordinates[1], place.radius, place.radius);
+  	fill(0);
+}
+
+
+
 // let shipdata = [{ship:"1", 
 //                 journey: [{start:[164, 260], destination:[370, 545], departure:1758, arrival:1759}]
 //                }, {ship:"2", 
@@ -74,6 +310,12 @@ function draw(){
   imageMode(CORNER);
   image(stars, 0, 0,stars.width/2, stars.height/2);
   
+  // draw nodes
+  
+  for (let place in places) {
+  	draw(place);
+}
+  
   // Update each ship
   for (i = 0; i < ships.length; i++){
     current_ship = ships[i]
@@ -88,6 +330,13 @@ function draw(){
     // Draw ship
     current_ship.display();
   }
+  
+
+
+
+  }
+  
+}
   // Check if time should move forward
   time = timeflow(time, speedoftime);
 }
@@ -96,6 +345,10 @@ function draw(){
 // Move time function. This sets the interval for the time variable to move forward:
 // By default, this is set per 60 frames (so time = 1 is one second)
 function timeflow(time, speedoftime){
+  for (location in mentioned.locations) {
+  	let place = searchByName(location);
+  	if (place !== -1) {
+    	place.radius += 10;
   if (frameCount % (speedoftime * 60) == 0){
     return time += 1;
   } else {
