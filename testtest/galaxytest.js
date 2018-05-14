@@ -31,7 +31,7 @@ function preload(){
 
 
 function setup(){
-  createCanvas(8000,6000)
+  createCanvas(800,600)
   for (i = 0; i < data.getRowCount(); i++){
     // get the data from table
     ship_id = data.getNum(i,0)
