@@ -238,7 +238,7 @@ function searchByName(name) {
 
 function draw(place) {
 	ellipse(place.coordinates[0], place.coordinates[1], place.radius, place.radius);
-  	fill(0);
+  	fill(100);
 }
 
 
