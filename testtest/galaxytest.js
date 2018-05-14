@@ -65,7 +65,7 @@ function setup(){
   startingframes = time * 60;
   speedoftime = 1;
   goal = 0;
-  frameadjust = 10;
+  frameadjust = -20;
 
 }
 
