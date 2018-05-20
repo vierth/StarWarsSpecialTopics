@@ -331,6 +331,7 @@ function drawLocation(place) {
    // Check if time should move forward
    time = timeflow(time, speedoftime);
  }
+}
  
  
  // Move time function. This sets the interval for the time variable to move forward:
