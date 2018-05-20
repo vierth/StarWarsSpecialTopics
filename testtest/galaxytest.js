@@ -330,6 +330,7 @@ function drawLocation(place) {
    }
    // Check if time should move forward
    time = timeflow(time, speedoftime);
+  }
  }
 }
  
