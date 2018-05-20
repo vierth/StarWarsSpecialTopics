@@ -291,7 +291,7 @@ function colorLocations() {
 }
 
 function searchByName(name) {
- 	for (let place in places) {
+ 	for (place in places) {
     		if (place.name === name) {
       		return place;
 		}
