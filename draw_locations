@@ -13,15 +13,15 @@
 
 //for (place in places) { 
   //function draw() {
-   // this.radius = 20;
-    //ellipse(place[0], place[1],radius,radius);
-    //fill(0);
+    //color = 255;
+    //ellipse(place[0], place[1],10,10);
+    //fill(255,255,color);
     }
 }
 
 //for (location in mentioned_locations) {
  // if (location in places) {
-  //  location.radius += 10;
+  //  location.color -= 10%;
   }
 }
 
@@ -257,17 +257,20 @@ function searchByName(name) {
 }
 
 function draw(place) {
-	ellipse(place.coordinates[0], place.coordinates[1], place.radius, place.radius);
-  	fill(0);
+	color = 255;
+	ellipse(place.coordinates[0], place.coordinates[1], 10, 10);
+  	fill(255,255, color);
 }
 
 for (let place in places) {
   	draw(place);
 }
 
-for (location in mentioned.locations) {
-  	let place = searchByName(location);
-  	if (place !== -1) {
-    	place.radius += 10;
-  }
+function colorLocations() {
+	for (location in mentioned.locations) {
+		let place = searchByName(location);
+		if (place !== -1) {
+		place.color = (int) (0.9 * place.color);
+	  }
+	}
 }
