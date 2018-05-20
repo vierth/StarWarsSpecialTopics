@@ -310,7 +310,7 @@ function draw(){
   image(stars, 0, 0,stars.width/2, stars.height/2);
   
   // draw nodes
-  for (let place in places) {
+  for (place in places) {
   	draw(place);
   
   // Update each ship
