@@ -311,7 +311,7 @@ function draw(){
   
   // draw nodes
   for (place in places) {
-  	drawLocation();
+  	drawLocation(place);
   
   // Update each ship
   for (i = 0; i < ships.length; i++){
