@@ -299,9 +299,9 @@
    return -1;
  }
  
--function draw(place) {
-+function drawLocation(place) {
- 	ellipse(place.coordinates[0], place.coordinates[1], 10, 10);
+
+function drawLocation(place) {
+    ellipse(place.coordinates[0], place.coordinates[1], 10, 10);
    	fill(255,255, place.color);
  }
  
@@ -312,8 +312,7 @@
    
    // draw nodes
    for (place in places) {
--  	draw(place);
-+  	drawLocation(place);
+     drawLocation(place);
    
    // Update each ship
    for (i = 0; i < ships.length; i++){
