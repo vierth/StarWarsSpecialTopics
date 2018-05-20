@@ -6,100 +6,14 @@ let speedoftime;
 let goal;
 let startingframes;
 let frameadjust;
-
-// let shipdata = [{ship:"1", 
-//                 journey: [{start:[164, 260], destination:[370, 545], departure:1758, arrival:1759}]
-//                }, {ship:"2", 
-//                journey: [{start:[164, 260], destination:[370, 545], departure:1759, arrival:1760}]
-//               }]
-
 let ships = [];
 let shipdata = [];
 let data;
-
-function preload(){
-  shp = loadImage("ship.png");
-  stars = loadImage("galaxymap-1.jpg")
-
-  // Load data from a TSV file
-  data = loadTable("data.tsv","tsv","header")
-  
-  
-}
-
-
-
-
-function setup(){
-  createCanvas(1263,902);
-  for (i = 0; i < data.getRowCount(); i++){
-    // get the data from table
-    ship_id = data.getNum(i,0)
-    leg_data = data.getNum(i,1)
-    departure_data = data.getNum(i,2)
-    arrival_data = data.getNum(i,3)
-    originx_data = data.getNum(i,4)
-    originy_data = data.getNum(i,5)
-    destinationx_data = data.getNum(i,6)
-    destinationy_data = data.getNum(i,7)
-    // Create new ship object if first leg
-    // Otherwise get old object and add to it
-    if (leg_data == 1) {
-      current_ship = {ship:ship_id}
-      current_ship.journey = [{start:[originx_data, originy_data], destination:[destinationx_data,destinationy_data],departure:departure_data,arrival:arrival_data}]
-      shipdata.push(current_ship)
-    } else if (leg_data > 1) {
-      current_ship = shipdata[ship_id]
-      current_ship.journey.push({start:[originx_data, originy_data], destination:[destinationx_data,destinationy_data],departure:departure_data,arrival:arrival_data})
-    } 
-  }
-  // Create Ship objects for each ship journey
-  for (i = 0; i < shipdata.length; i++){
-    current_ship = shipdata[i]
-    ships.push(new Ship(current_ship.journey[0].start[0],current_ship.journey[0].start[1], shp, current_ship))
-  }
-
-  // Set values for data, and display the background image
-  image(stars, 0, 0,stars.width/2, stars.height/2);
-  time = 1;
-  startingframes = time * 60;
-  speedoftime = 1;
-  goal = 0;
-  frameadjust = -20;
-
-}
-
-//code from Mitchell
-
-
-function colorLocations() {
-	for (location in mentioned.locations) {
-		let place = searchByName(location);
-		if (place !== -1) {
-		place.color = (int) (0.9 * place.color);
-	  }
-	}
-}
-
-function searchByName(name) {
- 	for (let place in places) {
-    		if (place.name === name) {
-      		return place;
-		}
-  	}
-  return -1;
-}
-
-function draw(place) {
-	ellipse(place.coordinates[0], place.coordinates[1], 10, 10);
-  fill(255,255, place.color);
-}
-
 let places = [
 	{  	
 	name: "Naboo",
    	coordinates: [746,641],
-    color : 255
+    	color : 255
 	},
 	{
   	name: "Tatooine",
@@ -314,6 +228,81 @@ let mentioned_locations = [['Naboo', 'Naboo'],
  [],
  [],
  []];
+
+function preload(){
+  shp = loadImage("ship.png");
+  stars = loadImage("galaxymap-1.jpg")
+
+  // Load data from a TSV file
+  data = loadTable("data.tsv","tsv","header")
+  
+  
+}
+
+function setup(){
+  createCanvas(1263,902);
+  for (i = 0; i < data.getRowCount(); i++){
+    // get the data from table
+    ship_id = data.getNum(i,0)
+    leg_data = data.getNum(i,1)
+    departure_data = data.getNum(i,2)
+    arrival_data = data.getNum(i,3)
+    originx_data = data.getNum(i,4)
+    originy_data = data.getNum(i,5)
+    destinationx_data = data.getNum(i,6)
+    destinationy_data = data.getNum(i,7)
+    // Create new ship object if first leg
+    // Otherwise get old object and add to it
+    if (leg_data == 1) {
+      current_ship = {ship:ship_id}
+      current_ship.journey = [{start:[originx_data, originy_data], destination:[destinationx_data,destinationy_data],departure:departure_data,arrival:arrival_data}]
+      shipdata.push(current_ship)
+    } else if (leg_data > 1) {
+      current_ship = shipdata[ship_id]
+      current_ship.journey.push({start:[originx_data, originy_data], destination:[destinationx_data,destinationy_data],departure:departure_data,arrival:arrival_data})
+    } 
+  }
+  // Create Ship objects for each ship journey
+  for (i = 0; i < shipdata.length; i++){
+    current_ship = shipdata[i]
+    ships.push(new Ship(current_ship.journey[0].start[0],current_ship.journey[0].start[1], shp, current_ship))
+  }
+
+  // Set values for data, and display the background image
+  image(stars, 0, 0,stars.width/2, stars.height/2);
+  time = 1;
+  startingframes = time * 60;
+  speedoftime = 1;
+  goal = 0;
+  frameadjust = -20;
+
+}
+
+//code from Mitchell
+
+
+function colorLocations() {
+	for (location in mentioned.locations) {
+		let place = searchByName(location);
+		if (place !== -1) {
+		place.color = (int) (0.9 * place.color);
+	  }
+	}
+}
+
+function searchByName(name) {
+ 	for (let place in places) {
+    		if (place.name === name) {
+      		return place;
+		}
+  	}
+  return -1;
+}
+
+function draw(place) {
+	ellipse(place.coordinates[0], place.coordinates[1], 10, 10);
+  	fill(255,255, place.color);
+}
 
 function draw(){
   // Draw background
