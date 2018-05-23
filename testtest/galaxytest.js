@@ -404,11 +404,11 @@ function drawLocation(place) {
        let stepdist = dir.normalize().mult(distance/remainingframes)
        this.pos = this.pos.add(stepdist);
      }
-   };
+   }
  
    // Display the object
    display () {
        imageMode(CENTER);
        image(this.icon, this.pos.x, this.pos.y, shp.width / 4, shp.height / 4);  
-   };
+   }
  }
