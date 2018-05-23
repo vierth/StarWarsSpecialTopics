@@ -282,7 +282,7 @@
  
  
  function colorLocations() {
- 	for (location in mentioned.locations) {
+ 	for (var location in mentioned.locations) {
  		let place = searchByName(location);
  		if (place !== -1) {
  		place.color = (int) (0.9 * place.color);
@@ -291,7 +291,7 @@
  }
  
  function searchByName(name) {
-  	for (place in places) {
+  	for (var place in places) {
      		if (place.name === name) {
        		return place;
  		}
@@ -311,7 +311,7 @@ function drawLocation(place) {
    image(stars, 0, 0,stars.width/2, stars.height/2);
    
    // draw nodes
-   for (place in places) {
+   for (var place in places) {
      drawLocation(place);
    
    // Update each ship
@@ -331,7 +331,7 @@ function drawLocation(place) {
    // Check if time should move forward
    time = timeflow(time, speedoftime);
   }
- }
+ 
 }
  
  
