@@ -312,6 +312,7 @@ function drawLocation(place) {
    
    // draw nodes
    for (var place in places) {
+    console.log(place)
      drawLocation(place);
    
    // Update each ship
