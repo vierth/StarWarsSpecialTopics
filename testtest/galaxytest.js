@@ -311,10 +311,10 @@ function drawLocation(place) {
    image(stars, 0, 0,stars.width/2, stars.height/2);
    
    // draw nodes
-  console.log(places)
+  
    for (w = 0; w < places.length; w++) {
     let place = places[w]
-    console.log(place)
+    
      drawLocation(place);
    
    // Update each ship
