@@ -311,6 +311,7 @@ function drawLocation(place) {
    image(stars, 0, 0,stars.width/2, stars.height/2);
    
    // draw nodes
+  console.log(places)
    for (var place in places) {
     console.log(place)
      drawLocation(place);
