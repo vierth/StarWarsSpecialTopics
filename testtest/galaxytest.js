@@ -312,7 +312,8 @@ function drawLocation(place) {
    
    // draw nodes
   console.log(places)
-   for (var place in places) {
+   for (w = 0; w < places.length; w++) {
+    place = places[w]
     console.log(place)
      drawLocation(place);
    
